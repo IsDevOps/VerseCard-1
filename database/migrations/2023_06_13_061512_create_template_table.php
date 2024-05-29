@@ -13,8 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
+        Schema::create('template', function (Blueprint $table) {
+            $table->id();
+            $table->string('template_name');
+            $table->text('prompt');
+            $table->string('module');
+            $table->text('field_json');
+            $table->integer('is_tone');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('template');
     }
 };

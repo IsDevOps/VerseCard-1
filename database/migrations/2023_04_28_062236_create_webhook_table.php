@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
+        Schema::create('webhooks', function (Blueprint $table) {
+            $table->id();
+            $table->longText('module');
+            $table->Text('method');
+            $table->Text('url');
+            $table->integer('created_by');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('webhook');
     }
 };

@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
+        Schema::table('businesses', function (Blueprint $table) {
+            $table->string('enable_pwa_business')->default('off');
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
+        Schema::table('businesses', function (Blueprint $table) {
+            $table->dropColumn('enable_pwa_business');
         });
     }
 };

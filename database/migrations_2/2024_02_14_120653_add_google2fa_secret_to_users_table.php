@@ -13,9 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::create('login_securities', function (Blueprint $table) {
+        $table->id();
+        $table->integer('user_id');
+        $table->boolean('google2fa_enable')->default(false);
+        $table->string('google2fa_secret')->nullable();
+        $table->timestamps();
+    });
     }
 
     /**

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class AddFiledInBussinessTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
+        
+        Schema::table('appointment_deatails', function (Blueprint $table) {
+            $table->string('phone')->nullable()->after('email');
         });
     }
 
@@ -25,8 +26,11 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        
+        Schema::table(
+            'appointment_deatails', function (Blueprint $table){
+            $table->dropColumn('phone');
+        }
+        );
     }
-};
+}

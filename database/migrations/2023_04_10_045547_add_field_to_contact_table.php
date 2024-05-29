@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
+        Schema::table('contacts', function (Blueprint $table) {
+            $table->string('status')->default('pending')->after('message');
+            $table->text('note')->nullable()->after('status');
         });
     }
 
@@ -25,7 +26,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('contact', function (Blueprint $table) {
             //
         });
     }

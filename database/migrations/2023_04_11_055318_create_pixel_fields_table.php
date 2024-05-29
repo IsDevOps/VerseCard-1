@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
+        Schema::create('pixel_fields', function (Blueprint $table) {
+            $table->id();
+            $table->integer('business_id')->nullable();
+            $table->string('platform')->nullable();
+            $table->string('pixel_id')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('pixel_fields');
     }
 };
