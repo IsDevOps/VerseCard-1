@@ -29,7 +29,7 @@ stages:
           composer install --no-interaction --prefer-dist
         displayName: 'Install Composer dependencies'
       - script: |
-          php artisan migrate --env=production
+          php artisan migrate --env=production --force
         displayName: 'Run migrations (production environment)'
       - script: |
           php artisan clear-compiled --env=production
