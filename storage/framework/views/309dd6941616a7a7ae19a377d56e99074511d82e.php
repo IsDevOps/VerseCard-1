@@ -137,7 +137,7 @@
        });
    <?php endif; ?>
 </script>
-    <?php echo $__env->yieldPushContent('custom-scripts'); ?>
+   
 
 </body>
 <?php if($set_cookie['enable_cookie'] == 'on'): ?>

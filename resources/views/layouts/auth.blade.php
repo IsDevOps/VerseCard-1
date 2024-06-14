@@ -137,7 +137,7 @@
        });
    @endif
 </script>
-    @stack('custom-scripts')
+   
 
 </body>
 @if ($set_cookie['enable_cookie'] == 'on')
