@@ -1,6 +1,8 @@
 <?php
 namespace Database\Seeders;
 use App\Models\User;
+use App\Models\LeadGeneration;
+use App\Models\LeadContact;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -283,6 +285,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'company@example.com',
                 'password' => \Hash::make('1234'),
                 'type' => 'company',
+				'current_business' => '1',
                 'lang' => 'en',
                 'created_by' => 0,
             ]
@@ -302,5 +305,37 @@ class UsersTableSeeder extends Seeder
             ['name'=>'s3_max_upload_size', 'value'=> 2048000, 'created_by'=> 1, 'created_at'=> now(), 'updated_at'=> now()]
         ];
        \DB::table('settings')->insert($data);
+	   
+	   
+	   $business_data = [
+            [
+                'business_id'=>'1',
+				'content'=>'[{"id":1,"title":"part 2","btitle":"test it","created_at":"2024-02-18T00:47:50.802402Z"}]',
+                'is_enabled'=>'1',
+				'created_by'=>'1',
+                "created_at" => date('Y-m-d H:i:s'),
+                "updated_at" => date('Y-m-d H:i:s'),
+            ]
+		];
+		\DB::table('lead_generations')->insert($business_data);
+		
+		
+		$contact_data = [
+            [
+                'business_id'=>'1',
+                'campaign_id'=>'1',
+				'campaign_title'=>'FirstBank',
+				'name'=>'First Bank',
+				'email'=>'demo@firstbank.com',
+				'phone'=>'08000000000',
+				'message'=>'Test From',
+				'status'=>'completed',
+				'note'=>'Done',
+				'created_by'=>'1',
+                "created_at" => date('Y-m-d H:i:s'),
+                "updated_at" => date('Y-m-d H:i:s'),
+            ]
+		];
+		\DB::table('lead_contacts')->insert($contact_data);
     }
 }

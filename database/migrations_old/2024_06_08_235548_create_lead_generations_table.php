@@ -1,10 +1,12 @@
+
+
 <?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLeadGenerationsTable extends Migration
+class CreateLeadgenerationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +16,12 @@ class CreateLeadGenerationsTable extends Migration
     public function up()
     {
         Schema::create('lead_generations', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('business_id')->nullable();
-            $table->text('content')->nullable();
-            $table->boolean('is_enabled')->nullable();
-            $table->unsignedInteger('created_by')->nullable();
+            $table->increments('id', 20);
+            $table->integer('business_id');
+            $table->text('content');
+            $table->integer('is_enabled');
+            $table->integer('created_by');
             $table->timestamps();
-
-            
         });
     }
 
@@ -35,3 +35,4 @@ class CreateLeadGenerationsTable extends Migration
         Schema::dropIfExists('lead_generations');
     }
 }
+

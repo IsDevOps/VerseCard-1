@@ -1,12 +1,10 @@
-
-
 <?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLeadcontactsTable extends Migration
+class CreateLeadContactsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,17 +14,17 @@ class CreateLeadcontactsTable extends Migration
     public function up()
     {
         Schema::create('lead_contacts', function (Blueprint $table) {
-            $table->increments('id', 20);
-            $table->integer('business_id');
-            $table->integer('campaign_id');
-            $table->string('campaign_title', 191);
-            $table->string('name', 191);
-            $table->string('email', 191);
-            $table->string('phone', 191);
-            $table->text('message');
+            $table->increments('id');
+            $table->unsignedInteger('business_id')->nullable();
+            $table->unsignedInteger('campaign_id')->nullable();
+            $table->string('campaign_title', 191)->nullable();
+            $table->string('name', 191)->nullable();
+            $table->string('email', 191)->nullable();
+            $table->string('phone', 191)->nullable();
+            $table->text('message')->nullable();
             $table->string('status', 191)->default('pending');
-            $table->text('note');
-            $table->integer('created_by');
+            $table->text('note')->nullable();
+            $table->unsignedInteger('created_by')->nullable();
             $table->timestamps();
         });
     }
@@ -41,4 +39,3 @@ class CreateLeadcontactsTable extends Migration
         Schema::dropIfExists('lead_contacts');
     }
 }
-

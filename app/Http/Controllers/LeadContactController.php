@@ -24,7 +24,7 @@ class LeadContactController extends Controller
     {
         $user=\Auth::user();
         $business_id=$user->current_business;
-        
+      
             if($business_id=="" || $business_id=="0"){
                 $contacts_deatails = LeadContact::where('created_by',\Auth::user()->creatorId())->get();
                 foreach ($contacts_deatails as $key => $value) {
@@ -53,13 +53,19 @@ class LeadContactController extends Controller
         $business_id=$user->current_business;
         
             if($business_id=="" || $business_id=="0"){
+				//dd('1');
                 $contacts_deatails = LeadGeneration::where('created_by',\Auth::user()->creatorId())->get();
+				$leadGeneration = LeadGeneration::where('created_by',\Auth::user()->creatorId())->where('business_id',$business_id)->first();
+				$leadGeneration_content = [];
+				if (!empty($leadGeneration->content)) {
+					$leadGeneration_content = array_reverse(json_decode($leadGeneration->content));
+					
+				}
                 foreach ($contacts_deatails as $key => $value) {
                     $business_name = Business::where('id',$value->business_id)->pluck('title')->first();
                     $value->business_name = $business_name;
                 }
             }else{
-				
                 $contacts_deatails = LeadGeneration::where('created_by',\Auth::user()->creatorId())->where('business_id',$business_id)->first();
 				
 				$leadGeneration = LeadGeneration::where('created_by',\Auth::user()->creatorId())->where('business_id',$business_id)->first();
