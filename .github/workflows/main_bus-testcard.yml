@@ -62,5 +62,5 @@ jobs:
         with:
           app-name: 'bus-testcard'
           slot-name: 'Production'
-          package: .
+          package: release.zip
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F473EF78D57140CE93E1B6405F1F4873 }}
