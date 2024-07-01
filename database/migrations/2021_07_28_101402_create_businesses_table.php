@@ -18,6 +18,7 @@ class CreateBusinessesTable extends Migration
             $table->text('slug')->nullable();
             $table->text('title')->nullable();
             $table->string('designation')->nullable();
+			$table->string('secret_code')->nullable();
             $table->text('sub_title')->nullable();
             $table->text('description')->nullable();
             $table->text('banner')->nullable();
@@ -25,6 +26,7 @@ class CreateBusinessesTable extends Migration
             $table->text('card_theme')->nullable();
             $table->string('theme_color')->nullable();
             $table->text('links')->nullable();
+			$table->bigInteger('scans_taps')->default(0)->nullable();
             $table->text('meta_keyword')->nullable();
             $table->text('meta_description')->nullable();
             $table->text('meta_image')->nullable();

@@ -1,10 +1,12 @@
+
+
 <?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLoginSecuritiesTable extends Migration
+class CreateLoginsecuritiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +16,9 @@ class CreateLoginSecuritiesTable extends Migration
     public function up()
     {
         Schema::create('login_securities', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->tinyInteger('google2fa_enable')->default(0);
+            $table->increments('id', 20);
+            $table->integer('user_id');
+            $table->tinyInteger('google2fa_enable')->default('0');
             $table->string('google2fa_secret', 191);
             $table->timestamps();
         });
@@ -32,3 +34,4 @@ class CreateLoginSecuritiesTable extends Migration
         Schema::dropIfExists('login_securities');
     }
 }
+
