@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => 'f376b08f5b050446aaec757e4d682a40321cde46',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -139,6 +139,15 @@
             'reference' => 'fb0d71a7393298a7b232cbf4c8b1f73f3ec3d5af',
             'dev_requirement' => false,
         ),
+        'doctrine/cache' => array(
+            'pretty_version' => '2.2.0',
+            'version' => '2.2.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../doctrine/cache',
+            'aliases' => array(),
+            'reference' => '1ca8f21980e770095a31456042471a57bc4c68fb',
+            'dev_requirement' => false,
+        ),
         'doctrine/common' => array(
             'pretty_version' => '3.4.3',
             'version' => '3.4.3.0',
@@ -149,12 +158,12 @@
             'dev_requirement' => false,
         ),
         'doctrine/dbal' => array(
-            'pretty_version' => '4.0.2',
-            'version' => '4.0.2.0',
+            'pretty_version' => '3.6.2',
+            'version' => '3.6.2.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/dbal',
             'aliases' => array(),
-            'reference' => '61d79c6e379a39dc1fea6b4e50a23dfc3cd2076a',
+            'reference' => 'b4bd1cfbd2b916951696d82e57d054394d84864c',
             'dev_requirement' => false,
         ),
         'doctrine/deprecations' => array(
@@ -608,12 +617,12 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => 'f376b08f5b050446aaec757e4d682a40321cde46',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
