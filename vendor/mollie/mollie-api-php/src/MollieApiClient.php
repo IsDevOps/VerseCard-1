@@ -7,6 +7,7 @@ use Mollie\Api\Endpoints\BalanceReportEndpoint;
 use Mollie\Api\Endpoints\BalanceTransactionEndpoint;
 use Mollie\Api\Endpoints\ChargebackEndpoint;
 use Mollie\Api\Endpoints\ClientEndpoint;
+use Mollie\Api\Endpoints\ClientLinkEndpoint;
 use Mollie\Api\Endpoints\CustomerEndpoint;
 use Mollie\Api\Endpoints\CustomerPaymentsEndpoint;
 use Mollie\Api\Endpoints\InvoiceEndpoint;
@@ -29,10 +30,14 @@ use Mollie\Api\Endpoints\PermissionEndpoint;
 use Mollie\Api\Endpoints\ProfileEndpoint;
 use Mollie\Api\Endpoints\ProfileMethodEndpoint;
 use Mollie\Api\Endpoints\RefundEndpoint;
+use Mollie\Api\Endpoints\SettlementCaptureEndpoint;
+use Mollie\Api\Endpoints\SettlementChargebackEndpoint;
 use Mollie\Api\Endpoints\SettlementPaymentEndpoint;
+use Mollie\Api\Endpoints\SettlementRefundEndpoint;
 use Mollie\Api\Endpoints\SettlementsEndpoint;
 use Mollie\Api\Endpoints\ShipmentEndpoint;
 use Mollie\Api\Endpoints\SubscriptionEndpoint;
+use Mollie\Api\Endpoints\TerminalEndpoint;
 use Mollie\Api\Endpoints\WalletEndpoint;
 use Mollie\Api\Exceptions\ApiException;
 use Mollie\Api\Exceptions\HttpAdapterDoesNotSupportDebuggingException;
@@ -45,7 +50,7 @@ class MollieApiClient
     /**
      * Version of our client.
      */
-    public const CLIENT_VERSION = "2.53.0";
+    public const CLIENT_VERSION = "2.69.0";
 
     /**
      * Endpoint of the remote API.
@@ -116,11 +121,32 @@ class MollieApiClient
     public $settlements;
 
     /**
+     * RESTful Settlement capture resource.
+     *
+     * @var \Mollie\Api\Endpoints\SettlementCaptureEndpoint
+     */
+    public $settlementCaptures;
+
+    /**
+     * RESTful Settlement chargeback resource.
+     *
+     * @var \Mollie\Api\Endpoints\SettlementChargebackEndpoint
+     */
+    public $settlementChargebacks;
+
+    /**
      * RESTful Settlement payment resource.
      *
      * @var \Mollie\Api\Endpoints\SettlementPaymentEndpoint
      */
     public $settlementPayments;
+
+    /**
+     * RESTful Settlement refund resource.
+     *
+     * @var \Mollie\Api\Endpoints\SettlementRefundEndpoint
+     */
+    public $settlementRefunds;
 
     /**
      * RESTful Subscription resource.
@@ -273,12 +299,19 @@ class MollieApiClient
     public $paymentLinks;
 
     /**
+     * RESTful Terminal resource.
+     *
+     * @var TerminalEndpoint
+     */
+    public $terminals;
+
+    /**
      * RESTful Onboarding resource.
      *
      * @var OrganizationPartnerEndpoint
      */
     public $organizationPartners;
-  
+
     /**
      * Manages Wallet requests
      *
@@ -324,6 +357,13 @@ class MollieApiClient
     public $clients;
 
     /**
+     * RESTful Client resource.
+     *
+     * @var ClientLinkEndpoint
+     */
+    public $clientLinks;
+
+    /**
      * @param \GuzzleHttp\ClientInterface|\Mollie\Api\HttpAdapter\MollieHttpAdapterInterface|null $httpClient
      * @param \Mollie\Api\HttpAdapter\MollieHttpAdapterPickerInterface|null $httpAdapterPicker,
      * @param \Mollie\Api\Idempotency\IdempotencyKeyGeneratorContract $idempotencyKeyGenerator,
@@ -349,7 +389,10 @@ class MollieApiClient
         $this->profileMethods = new ProfileMethodEndpoint($this);
         $this->customers = new CustomerEndpoint($this);
         $this->settlements = new SettlementsEndpoint($this);
+        $this->settlementCaptures = new SettlementCaptureEndpoint($this);
+        $this->settlementChargebacks = new SettlementChargebackEndpoint($this);
         $this->settlementPayments = new SettlementPaymentEndpoint($this);
+        $this->settlementRefunds = new SettlementRefundEndpoint($this);
         $this->subscriptions = new SubscriptionEndpoint($this);
         $this->customerPayments = new CustomerPaymentsEndpoint($this);
         $this->mandates = new MandateEndpoint($this);
@@ -374,8 +417,10 @@ class MollieApiClient
         $this->paymentChargebacks = new PaymentChargebackEndpoint($this);
         $this->wallets = new WalletEndpoint($this);
         $this->paymentLinks = new PaymentLinkEndpoint($this);
+        $this->terminals = new TerminalEndpoint($this);
         $this->organizationPartners = new OrganizationPartnerEndpoint($this);
         $this->clients = new ClientEndpoint($this);
+        $this->clientLinks = new ClientLinkEndpoint($this);
     }
 
     protected function initializeVersionStrings()
@@ -578,10 +623,9 @@ class MollieApiClient
     }
 
     /**
-     * @param \Mollie\Api\Idempotency\IdempotencyKeyGeneratorContract $generator
      * @return \Mollie\Api\MollieApiClient
      */
-    public function clearIdempotencyKeyGenerator($generator)
+    public function clearIdempotencyKeyGenerator()
     {
         $this->idempotencyKeyGenerator = null;
 
@@ -649,23 +693,45 @@ class MollieApiClient
             $headers['X-Mollie-Client-Info'] = php_uname();
         }
 
-        if (in_array($httpMethod, [self::HTTP_POST, self::HTTP_PATCH, self::HTTP_DELETE])) {
-            if (! $this->idempotencyKey && $this->idempotencyKeyGenerator) {
-                $headers['Idempotency-Key'] = $this->idempotencyKeyGenerator->generate();
-            }
-
-            if ($this->idempotencyKey) {
-                $headers['Idempotency-Key'] = $this->idempotencyKey;
-            } elseif ($this->idempotencyKeyGenerator) {
-                $headers['Idempotency-Key'] = $this->idempotencyKeyGenerator->generate();
-            }
-        }
+        $headers = $this->applyIdempotencyKey($headers, $httpMethod);
 
         $response = $this->httpClient->send($httpMethod, $url, $headers, $httpBody);
 
         $this->resetIdempotencyKey();
 
         return $response;
+    }
+
+    /**
+     * Conditionally apply the idempotency key to the request headers
+     *
+     * @param array $headers
+     * @param string $httpMethod
+     * @return array
+     */
+    private function applyIdempotencyKey(array $headers, string $httpMethod)
+    {
+        if (! in_array($httpMethod, [self::HTTP_POST, self::HTTP_PATCH, self::HTTP_DELETE])) {
+            unset($headers['Idempotency-Key']);
+
+            return $headers;
+        }
+
+        if ($this->idempotencyKey) {
+            $headers['Idempotency-Key'] = $this->idempotencyKey;
+
+            return $headers;
+        }
+
+        if ($this->idempotencyKeyGenerator) {
+            $headers['Idempotency-Key'] = $this->idempotencyKeyGenerator->generate();
+
+            return $headers;
+        }
+
+        unset($headers['Idempotency-Key']);
+
+        return $headers;
     }
 
     /**

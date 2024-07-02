@@ -10,11 +10,6 @@ use Mollie\Api\Types\SequenceType;
 class Payment extends BaseResource
 {
     /**
-     * @var string
-     */
-    public $resource;
-
-    /**
      * Id of the payment (on the Mollie platform).
      *
      * @var string
@@ -149,6 +144,7 @@ class Payment extends BaseResource
      *
      * @example "user@mollie.com"
      * @var string|null
+     * @deprecated 2024-06-01 The billingEmail field is deprecated. Use the "billingAddress" field instead.
      */
     public $billingEmail;
 
@@ -213,6 +209,27 @@ class Payment extends BaseResource
     public $orderId;
 
     /**
+     * The lines contain the actual items the customer bought.
+     *
+     * @var array|object[]|null
+     */
+    public $lines;
+
+    /**
+     * The person and the address the order is billed to.
+     *
+     * @var \stdClass|null
+     */
+    public $billingAddress;
+
+    /**
+     * The person and the address the order is shipped to.
+     *
+     * @var \stdClass|null
+     */
+    public $shippingAddress;
+
+    /**
      * The settlement ID this payment belongs to.
      *
      * @example stl_jDk30akdN
@@ -274,6 +291,36 @@ class Payment extends BaseResource
      * @var \stdClass|null
      */
     public $amountCaptured;
+
+    /**
+     * Indicates whether the capture will be scheduled automatically or not. Set
+     * to manual to capture the payment manually using the Create capture endpoint.
+     *
+     * Possible values: "automatic", "manual"
+     *
+     * @var string|null
+     */
+    public $captureMode;
+
+    /**
+     * Indicates the interval to wait before the payment is
+     * captured, for example `8 hours` or `2 days. The capture delay
+     * will be added to the date and time the payment became authorized.
+     *
+     * Possible values: ... hours ... days
+     * @example 8 hours
+     * @var string|null
+     */
+    public $captureDelay;
+
+    /**
+     * UTC datetime on which the merchant has to have captured the payment in
+     * ISO-8601 format. This parameter is omitted if the payment is not authorized (yet).
+     *
+     * @example "2013-12-25T10:30:54+00:00"
+     * @var string|null
+     */
+    public $captureBefore;
 
     /**
      * The application fee, if the payment was created with one. Contains amount
@@ -704,7 +751,10 @@ class Payment extends BaseResource
             "dueDate" => $this->dueDate,
         ];
 
-        $result = $this->client->payments->update($this->id, $body);
+        $result = $this->client->payments->update(
+            $this->id,
+            $this->withPresetOptions($body)
+        );
 
         return ResourceFactory::createFromApiResult($result, new Payment($this->client));
     }
