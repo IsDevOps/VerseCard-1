@@ -1,6 +1,3 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
 name: Build and deploy PHP app to Azure Web App - card-poc(staging)
 
 on:
@@ -26,10 +23,6 @@ jobs:
         uses: andstor/file-existence-action@v1
         with:
           files: 'composer.json'
-      - name: Install Composer dependencies
-        run: |
-            composer config "http-basic.nova.laravel.com" "${{ secrets.NOVA_USERNAME }}" "${{ secrets.NOVA_LICENSE_KEY }}"
-            composer install --no-interaction --optimize-autoloader --no-dev    
 
       - name: Run composer install if composer.json exists
         if: steps.check_files.outputs.files_exists == 'true'
@@ -66,5 +59,5 @@ jobs:
         with:
           app-name: 'card-poc(staging)'
           slot-name: 'staging'
-          package: release.zip
+          package: .
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
