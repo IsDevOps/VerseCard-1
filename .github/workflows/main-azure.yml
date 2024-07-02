@@ -48,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: staging
+      name: 'staging'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     
     steps:
@@ -65,6 +65,6 @@ jobs:
         id: deploy-to-webapp
         with:
           app-name: 'card-poc(staging)'
-          slot-name: staging
-          package: .
+          slot-name: 'staging'
+          package: release.zip
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
