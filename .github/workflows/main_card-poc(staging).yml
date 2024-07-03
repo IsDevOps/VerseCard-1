@@ -43,6 +43,9 @@ jobs:
         with:
           name: php-app
           path: release.zip
+      - name: Clean wwwroot directory
+        run: |
+          rm -rf /home/site/wwwroot/*
 
   deploy:
     runs-on: ubuntu-latest
