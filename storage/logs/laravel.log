@@ -29027,3 +29027,87 @@ Did you mean one of these?
 [stacktrace]
 #0 {main}
 "} 
+[2024-07-03 14:58:48] local.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 14:59:48] local.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 15:00:48] local.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 15:01:48] local.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 15:02:48] local.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 15:03:48] local.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 15:04:48] local.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 15:05:48] local.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 15:06:49] local.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 15:07:48] local.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 15:08:48] local.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 15:09:49] local.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 15:10:48] local.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 15:11:48] local.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 15:12:49] local.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 15:13:49] local.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 15:14:49] local.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 15:15:49] local.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 15:16:49] local.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 15:17:48] local.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 15:18:48] production.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
