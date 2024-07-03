@@ -36,7 +36,7 @@ jobs:
         run: composer validate --no-check-publish && composer install --prefer-dist --no-progress
 
       - name: Zip artifact for deployment
-        run: zip releases.zip ./* -r
+        run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -69,4 +69,5 @@ jobs:
         with:
           app-name: 'card-poc'
           slot-name: 'staging'
+          package: releases.zip'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1F3BBDAA429B4523AE3F985453F8A89D }}
