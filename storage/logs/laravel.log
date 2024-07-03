@@ -29859,3 +29859,19 @@ Did you mean one of these?
 [stacktrace]
 #0 {main}
 "} 
+[2024-07-03 19:21:49] production.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 19:22:49] production.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 19:23:49] production.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 
+[2024-07-03 19:24:49] production.ERROR: Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare pixelSourceCode() (previously declared in /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:2) at /home/oseghale/Documents/ehis/VerseCard-1/app/helpers.php:217)
+[stacktrace]
+#0 {main}
+"} 

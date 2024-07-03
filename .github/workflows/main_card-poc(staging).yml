@@ -42,7 +42,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: php-app
-          path: releases.zip
+          path: release.zip
       - name: Clean wwwroot directory
         run: |
           rm -rf /home/site/wwwroot/*
