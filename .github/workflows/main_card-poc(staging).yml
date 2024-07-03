@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy PHP app to Azure App - card-poc
+name: Build and deploy PHP app to Azure Web App - card-poc
 
 on:
   push:
@@ -20,10 +20,6 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
-      - name: Install Composer dependencies
-        run: |
-          composer config "http-basic.nova.laravel.com" "${{ secrets.NOVA_USERNAME }}" "${{ secrets.NOVA_LICENSE_KEY }}"
-          composer install --no-interaction --optimize-autoloader --no-dev    
 
       - name: Check if composer.json exists
         id: check_files
@@ -43,9 +39,6 @@ jobs:
         with:
           name: php-app
           path: release.zip
-      - name: Clean wwwroot directory
-        run: |
-          rm -rf /home/site/wwwroot/*
 
   deploy:
     runs-on: ubuntu-latest
@@ -69,5 +62,5 @@ jobs:
         with:
           app-name: 'card-poc'
           slot-name: 'staging'
-          package: release.zip'
+          package: release.zip
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1F3BBDAA429B4523AE3F985453F8A89D }}
