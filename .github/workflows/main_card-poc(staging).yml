@@ -61,7 +61,7 @@ jobs:
           name: php-app
 
       - name: Unzip artifact for deployment
-        run: unzip releases.zip
+        run: unzip release.zip
       
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
@@ -69,5 +69,5 @@ jobs:
         with:
           app-name: 'card-poc'
           slot-name: 'staging'
-          package: releases.zip'
+          package: release.zip'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1F3BBDAA429B4523AE3F985453F8A89D }}
