@@ -42,7 +42,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: php-app
-          path: release.zip
+          path: releases.zip
       - name: Clean wwwroot directory
         run: |
           rm -rf /home/site/wwwroot/*
@@ -61,7 +61,7 @@ jobs:
           name: php-app
 
       - name: Unzip artifact for deployment
-        run: unzip release.zip
+        run: unzip releases.zip
       
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
@@ -69,5 +69,5 @@ jobs:
         with:
           app-name: 'card-poc'
           slot-name: 'staging'
-          package: '${{ github.workspace }}/release.zip'
+          package: '${{ github.workspace }}/releases.zip'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1F3BBDAA429B4523AE3F985453F8A89D }}
