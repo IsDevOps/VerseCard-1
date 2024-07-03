@@ -43,7 +43,7 @@ class HomeController extends Controller
                     $segments = explode('/', str_replace('' . url('') . '', '', $uri));
                     $segments = $segments[1] ?? null;
                     if ($segments == null) {
-                        $local = parse_url(config('app.url'))['host'];
+                        //$local = parse_url(config('app.url'))['host'];
                         // Get the request host
                         $remote = request()->getHost();
                         // Get the remote domain
@@ -231,7 +231,7 @@ class HomeController extends Controller
             header('location:install');
             die;
         } else {
-            $local = parse_url(config('app.url'))['host'];
+            //$local = parse_url(config('app.url'))['host'];
 
             // Get the request host
             $remote = request()->getHost();
