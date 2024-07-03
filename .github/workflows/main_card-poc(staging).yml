@@ -66,5 +66,5 @@ jobs:
         with:
           app-name: 'card-poc'
           slot-name: 'staging'
-          package: release.zip
+          package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1F3BBDAA429B4523AE3F985453F8A89D }}
