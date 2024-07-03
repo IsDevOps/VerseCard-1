@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
@@ -32,5 +32,7 @@ class AppServiceProvider extends ServiceProvider
                 \Log::info($query->bindings);
                 \Log::info($query->time);
         });
+        URL::forceScheme('https');
+        
     }
 }
