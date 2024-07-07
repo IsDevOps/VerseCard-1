@@ -4,13 +4,7 @@
 @endsection
 
 @section('language-bar')
-    <li class="nav-item ">
-        <select name="language" id="language" class="language-dropdown btn btn-primary mr-2 my-2 me-2"
-            onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"
-            @foreach (App\Models\Utility::languages() as $code => $language)
-                 <option @if ($lang == $code) selected @endif value="{{ route('login', $code) }}">{{ Str::upper($language) }}</option> @endforeach
-            </select>
-    </li>
+
 @endsection
 
 @push('custom-scripts')
@@ -34,16 +28,16 @@
 @section('content')
     <!-- [ auth-signup ] start -->
     <div class="card">
-        <div class="row align-items-center">
-            <div class="col-xl-6">
+        <div class="row align-items-center" style="margin: 100px auto;border-radius: 25px;background: #0082d0;color: #ffffff">
+            <div class="col-xl-12">
                 <div class="card-body">
-                    <div class="">
-                        <h2 class="mb-3 f-w-600">{{ __('Login') }}</h2>
+                    <div class="" >
+                        <h2 class="mb-3 f-w-600" style="color: #b9e5ff">{{ __('Login') }}</h2>
                     </div>
                     {{ Form::open(['route' => 'login', 'method' => 'post', 'id' => 'loginForm', 'class' => 'login-form']) }}
                     <div class="">
                         <div class="form-group mb-3">
-                            <label class="form-label">{{ __('Email') }}</label>
+                            <label class="form-label">{{ __('Emails') }}</label>
                             {{ Form::text('email', null, ['class' => 'form-control', 'placeholder' => __('Enter Your Email')]) }}
                             @error('email')
                                 <span class="error invalid-email text-danger" role="alert">
@@ -68,7 +62,7 @@
                         @if (Route::has('password.request'))
                             <div class="form-group mb-4">
                                 <a href="{{ route('password.request') }}"
-                                    class="small text-dark   text-underline--dashed  border-primary">
+                                    class="small text-light   text-underline--dashed  border-primary">
                                     {{ __('Forgot Your Password?') }}</a>
                             </div>
                         @endif
@@ -83,7 +77,7 @@
                                 @enderror
                             </div>
                         @endif
-                        <div class="d-grid">
+                        <div class="d-grid" style="background: white;color: #0082d0;">
                             {{ Form::submit(__('Login'), ['class' => 'btn btn-primary btn-block mt-2', 'id' => 'saveBtn']) }}
                         </div>
                         {{ Form::close() }}
@@ -91,16 +85,7 @@
 
                 </div>
             </div>
-            <div class="col-xl-6 img-card-side">
-                <div class="auth-img-content">
-                    <img src="{{ asset('assets/images/auth/img-auth-3.svg') }}" alt="" class="img-fluid">
-                    <h3 class="text-white mb-4 mt-5"> {{ __('“Attention is the new currency”') }}</h3>
-                    <p class="text-white">
-                        {{ __('The more effortless the writing looks, the more effort the writer
-                                                                            actually put into the process.') }}
-                    </p>
-                </div>
-            </div>
+            
         </div>
     </div>
     <!-- [ auth-signup ] end -->

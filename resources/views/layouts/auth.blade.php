@@ -65,51 +65,18 @@
 
 <body class="{{ $color }}">
     <div class="auth-wrapper auth-v3">
-        <div class="bg-auth-side bg-primary"></div>
+        
         <div class="auth-content">
             <div class="auth-wrapper auth-v3">
-                <div class="bg-auth-side bg-primary"></div>
+                <div class="bg-auth-side bg-primary" style="background: #fff0 !important;"></div>
                 <div class="auth-content">
-                    <nav class="navbar navbar-expand-md navbar-light default">
-                        <div class="container-fluid pe-2">
-                            <a class="navbar-brand" href="#">
-                                @if ($setting['cust_darklayout'] == 'on')
-                                    <img src="{{ $logo . (isset($company_logo) && !empty($company_logo) ? $company_logo : 'logo-light.png').'?'.time() }}"
-                                        alt="" class="img-fluid" />
-                                @else
-                                    <img src="{{ $logo . (isset($company_logo) && !empty($company_logo) ? $company_logo : 'logo-dark.png').'?'.time() }}"
-                                        alt="" class="img-fluid" />
-                                @endif
-                            </a>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="flex-grow: 0;">
-                                <ul class="navbar-nav align-items-center ms-auto mb-2 mb-lg-0">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="#">Supports</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Terms</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Privacy</a>
-                                    </li>
-                                </ul>
-                                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                                    @yield('language-bar')
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
+                    
 
                     @yield('content')
                     <div class="auth-footer">
                         <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-6">
+                            <div class="row" style="display: flex;justify-content:center">
+                                <div class="col-6" style="text-align: center;">
                                     <p class="">
                                         {{ __('Copyright © ') }}{{ isset($langSetting['footer_text']) ? $langSetting['footer_text'] : config('app.name', 'versecards') }} {{ date('Y') }} </p>
                                 </div>
